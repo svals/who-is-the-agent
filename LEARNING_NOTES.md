@@ -59,3 +59,72 @@ opened the current folder in VS Code. The `.` means "the current folder."
 - README.md is the front page/documentation for the project.
 - `main` is the primary branch.
 - A commit is a saved checkpoint in the project's history.
+
+## Python basics
+
+### Functions
+
+A function is a reusable capability.
+
+In this project:
+
+`get_calendar()`
+
+is a function that returns calendar data.
+
+### Lists and loops
+
+`get_calendar()` currently returns a list of meetings.
+
+A loop lets me do something with each item in that list:
+
+`for meeting in get_calendar():`
+
+Here, `meeting` is a variable. Each time through the loop, it temporarily represents one meeting from the list.
+
+### Conditional logic
+
+The first version of the program uses an `if` statement to decide whether to call the calendar function.
+
+If the request contains "meeting" or "calendar", the program calls `get_calendar()`.
+
+This is not AI. I explicitly programmed the rule.
+
+## Git workflow
+
+`git status` — shows what has changed.
+
+`git add .` — stages the current changes for the next commit.
+
+`git commit -m "message"` — saves a checkpoint in the local Git history.
+
+`git push` — sends my local commits to GitHub.
+
+So my basic workflow is:
+
+edit → add → commit → push
+
+## V0: Calendar assistant
+
+The first version can:
+
+1. Accept a request from a user.
+2. Look for specific words in that request.
+3. Decide whether to call `get_calendar()`.
+4. Return fake calendar data.
+
+Architecture:
+
+User → request → hard-coded decision → calendar function → calendar data
+
+### Identity question
+
+V0 has no authentication or authorization. Anyone who can ask for calendar information can receive it.
+
+As I replace the hard-coded decision with an AI model that can choose when to call tools, this raises a bigger question:
+
+**Who is allowed to call a tool, and who decides?**
+
+I'm exploring this further in the companion Substack.
+
+The next version will replace the hard-coded decision with an AI model that can decide when it needs to use the calendar tool.
